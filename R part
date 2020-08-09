@@ -1,0 +1,35 @@
+#question 1
+impolite<-function(k){
+  c<-c()
+  i=2
+  n=1
+  c[1]<-1
+  while (2**n<k) {
+    c[i]<-2**n
+    n<-n+1
+    i<-i+1
+  }
+  return(c)
+}
+impolite(70)
+
+impolitelist<-impolite(1000000)
+polite<-function(k,filename) {
+  i=1
+  j=1
+  politelist<-c()
+  while (i<k) {
+    if (i %in% impolitelist){
+      i<-i+1
+    }
+    else{
+      politelist[j]<-i
+      i<-i+1
+      j<-j+1
+    }
+  }
+  total<-sum(politelist)
+  z<-data.frame(politelist,total)
+  write.csv(z,file=paste("E:\\",filename))
+}
+polite(70,"politenumbers.txt")
