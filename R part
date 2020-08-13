@@ -33,3 +33,61 @@ polite<-function(k,filename) {
   write.csv(z,file=paste("E:\\",filename))
 }
 polite(70,"politenumbers.txt")
+
+#question 3
+Fibonacci<- function(x){   
+  if (x<=2) {
+  c<-c(1,1)                 #creat first two numbers in the sequence by hand
+  }
+  else{
+    c<-c(1,1)
+    for (i in 3:x){
+    c[i]=c[i-1]+c[i-2]     # fibonacci sequency formula
+    }
+  }
+  return(c[x])           #function that will return the nth Fibonacci number
+}
+
+Fibonacci(10)
+
+Modified<-function(a,b,alpha,beta,x){
+  if (x<=2){
+    c<-c(a,b)            #creat first two numbers in the sequence by hand
+  }
+  else{
+    c<-c(a,b)
+    for (i in 3:x){
+      c[i]=alpha*c[i-1]+beta*c[i-2]   # modified sequency formula
+    }
+  }
+  return(c[x])       #function that will return the nth modified sequence number
+}
+
+Modified(a=4,b=2,alpha=1,beta=5,x=10)
+
+Modified_2<-function(a,b,alpha,beta,x,k){
+  d<-c()
+  if (x<=2){
+    c<-c(a,b)
+  }
+  else{
+    c<-c(a,b)
+    for (i in 3:x){
+      c[i]=alpha*c[i-1]+beta*c[i-2]
+    }
+  }
+  v<-1
+  for (j in 1:length(c)){       #check each number in modified sequence
+    if (c[j]<k){               # if it is less than number k
+      d[v]<-c[j]               # then keep it in vector 'd'
+      v<-v+1
+    }
+  }
+  file_name=paste("E:\\modified_fib","a=",a,"b=",b,"alpha=",alpha,"beta=",beta,"last_position=",x,"less_than=",k,"2020-04-24.csv",sep = "_")
+         #use paste function to combine the file name and file path
+  final<-write.csv(d,file =file_name )    # output the file 
+  return(final)
+}
+
+Modified_2(a=1,b=1,alpha=1,beta=1,x=10,k =33)
+
