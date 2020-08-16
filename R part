@@ -91,3 +91,16 @@ Modified_2<-function(a,b,alpha,beta,x,k){
 
 Modified_2(a=1,b=1,alpha=1,beta=1,x=10,k =33)
 
+#question 4
+seatbelts<-read.csv("seatbelts.csv")
+hist(seatbelts$drivers)   #histogram demonstrating the number of drivers that died or seriously injured in an accident
+hist(seatbelts$front)     #histograms for the people in the front seats of the car that died or seriously injured.
+hist(seatbelts$rear)      #histograms for the people in the rear seats of the car that died or seriously injured.
+
+a<-seatbelts[seatbelts$law==0,]
+mean(a$front)  #the average number of people in the front seat that die or seriously injured when the law is not in effect 
+b<-seatbelts[seatbelts$law==1,]
+mean(b$front)   #the average number of people in the front seat that die or seriously injured when the law is in effect 
+
+cor.test(seatbelts$front,seatbelts$rear)
+summary(lm(seatbelts$front~seatbelts$rear))
