@@ -104,3 +104,44 @@ mean(b$front)   #the average number of people in the front seat that die or seri
 
 cor.test(seatbelts$front,seatbelts$rear)
 summary(lm(seatbelts$front~seatbelts$rear))
+
+#question 5
+f<-function(x){
+  result<-cos(x**4)/(1+abs(x))
+  return(result)
+}
+
+P<-function(x){
+  result<-dchisq(x,df=3)
+  return(result)
+}
+
+GetSN <-function(N){
+  Z<-rlnorm(N)
+  SN<-1/N*sum(f(Z))
+  return(SN)
+}
+GetSN(5000)
+
+fortySN<-function(){
+  c<-c()
+  for (i in 1:40){
+    c[i]<-GetSN(5000)
+  }
+  final<-write.csv(c,"E:\\40 evaluations of the function GetSN for N=5000.csv")
+  return(final)
+}
+fortySN()
+
+
+checkSN<-function(){
+  c<-c()
+  for (i in 1:40){
+    c[i]<-GetSN(5000)
+  }
+  return(c)
+}
+
+shapiro.test(checkSN())
+mean(checkSN())
+var(checkSN())
