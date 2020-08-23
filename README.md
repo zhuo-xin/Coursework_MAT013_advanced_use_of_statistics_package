@@ -7,7 +7,6 @@ In number theory, a polite number is a positive integer that can be written as t
 Create a function that will give all impolite numbers less than k (an input). Demonstrate this function with k=70.
 Furthermore write another function which takes also as input the name of a file and writes polite numbers with their sum representations to a csv file with that name. Demonstrate this function with k=70 and the file name “politenumbers.txt”.
 
-
 Question 3:
 Write a function that will return the nth Fibonacci number, F(n).
 Modify the function so that it returns the nth number of the sequence defined by:
@@ -38,3 +37,7 @@ SN→I  as  N→∞,
 Thus, SN is an estimator of I.
 
 Consider the function f(x)=cos(x4)/(1+|x|). Using R, write a function GetSN with argument N which returns SN . Write a file with 40 evaluations of the function GetSN for N=5000. What can you say statistically about I?
+
+SAS language part question
+A perfect number is a natural number that is equal to the sum of its divisors (excluding itself). For example 1,2,4,7 and 14 divide 28 and 28=1+2+4+7+14.
+Write code in SAS that allows one to write to a csv file a data set with all natural numbers less than a given parameter N as well as a boolean variable indicating if the number is perfect or not. 
